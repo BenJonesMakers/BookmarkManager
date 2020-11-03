@@ -19,6 +19,8 @@ Database setup instructions:
 3. Connect to the database using the pqsl command \c bookmark_manager;
 4. Run the query we have saved in the file 01_create_bookmarks_table.sql
 
+Do this again for a database called 'bookmark_manager_test'
+
 # Show a list of bookmarks
 
 As an internet user
