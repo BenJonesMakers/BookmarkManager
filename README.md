@@ -21,13 +21,7 @@ Database setup instructions:
 
 Do this again for a database called 'bookmark_manager_test'
 
-# Show a list of bookmarks
-
-As an internet user
-So that I can remember sites I have visited
-I would like to see a list of bookmarked web pages
-
-Domain Model:
+# Domain Model:
 
 Objects:
 
@@ -40,3 +34,17 @@ A controller (app.rb)
 route: /bookmarks
 Model: Bookmark
 View: Bookmark
+
+route /bookmarks/add
+
+# Show a list of bookmarks
+
+As an internet user
+So that I can remember sites I have visited
+I would like to see a list of bookmarked web pages
+
+# Add a new bookmark
+
+As an internet user
+So that store a bookmark of a particular page
+I would like to add a bookmark to the bookmark manager
