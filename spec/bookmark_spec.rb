@@ -7,7 +7,7 @@ describe Bookmark do
     end
 
     it 'returns an array of bookmarks' do
-      expect(Bookmark.all).to eq ['google.co.uk', 'amazon.co.uk']
+      expect(Bookmark.all).to include('http://www.makersacademy.com')
     end
   end
 end
