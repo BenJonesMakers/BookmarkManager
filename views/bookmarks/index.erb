@@ -1,1 +1,4 @@
-<%= @bookmarks %>
+Pages:
+<% @bookmarks.each do |bookmark| %>
+  <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+<% end %>

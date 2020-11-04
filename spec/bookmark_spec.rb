@@ -7,17 +7,12 @@ describe Bookmark do
     end
 
     it 'returns an array of bookmarks' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      # Add the test data
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com', 'Makers Academy');")
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.destroyallsoftware.com', 'Destroy all Software');")
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'Google US');")
+      connect_and_insert_test_data()
 
       bookmarks = Bookmark.all
-      expect(bookmarks).to include('Makers Academy')
-      expect(bookmarks).to include('Destroy all Software')
-      expect(bookmarks).to include('Google US')
+      expect(bookmarks.length).to eq 3
+      expect(bookmarks.first.title).to eq 'Makers Academy'
     end
   end
 
@@ -27,17 +22,14 @@ describe Bookmark do
     end
 
     it 'returns a list of bookmarks with new one added' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      # Add the test data
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com', 'Makers Academy');")
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.destroyallsoftware.com', 'Destroy all Software');")
-      connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'Google US');")
+      connect_and_insert_test_data()
+
       url = "http://www.wtf.com"
       title = "WTF"
       Bookmark.add_bookmark(url, title)
       bookmarks = Bookmark.all
-      expect(bookmarks).to include('WTF')
+      expect(bookmarks.last.title).to eq 'WTF'
 
     end
   end
