@@ -1,4 +1,6 @@
-Pages:
+<h1>Pages:</h1>
+<ul>
 <% @bookmarks.each do |bookmark| %>
-  <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+  <li><a href="<%= bookmark.url %>"><%= bookmark.title %></a></li>
 <% end %>
+</ul>
